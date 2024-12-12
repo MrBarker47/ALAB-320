@@ -34,6 +34,6 @@ const getPokemon = async(searchTerm) => {
         const data = await response.json();
         setPokemon(data);
     } catch(e) {
-        console.error(e)
+        console.error(e) 
     }
 }
