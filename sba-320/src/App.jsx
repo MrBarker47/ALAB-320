@@ -1,5 +1,8 @@
 import {useState, useEffect} from 'react'
 
+import Pokedex from './components/PokeDex';
+import PokemonDisplay from './components/PokemonDisplay';
+
 
 export default function App() {
     
@@ -20,6 +23,7 @@ export default function App() {
     return(
         <div>
         <h1 className='pokemon'>Pokedex</h1>
+        
         </div>
     )
 
