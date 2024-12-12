@@ -1,15 +1,13 @@
-import { useState } from 'react'
-
+import { useState, useEffect } from 'react'
 import './App.css'
 
-function App() {
-  
-
+export default function App() {
   return (
     <>
-    <h1>News Report</h1>
+    <h1>News</h1>
+    <button>Click Here For The News</button>
     </>
   )
 }
 
-export default App
+
