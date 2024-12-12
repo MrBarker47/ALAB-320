@@ -11,17 +11,16 @@ export default function App() {
     const getNews = async(searchTerm) => {
       const response = await fetch(
         `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}` 
+        .then(res => res.json())
+        .then(json => console.log(json))
       );
-      const data = await response.json();
-      setNews(data);
-    };
+    //   const data = await response.json();
+    //   setNews(data);
+    useEffect(() =>{
+     getNews()   
+    },[])
     
-  
-    return (
-      <>
-      <h1>News Report</h1>
-      <button>Click Here For The News!</button>
-      </>
-    )
-  }
+ };
+
+}
   
