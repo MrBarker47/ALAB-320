@@ -1,19 +1,34 @@
-export default function PokemonDisplay({ pokemon }) {
-    const loaded = () => {
-        return (
-            <>
-            <h1>{pokemon.name}</h1>
-            <h2>{pokemon.url}</h2>
-            <img src={pokemon.img} alt={pokemon.Title} />
-            </>
-        );
-    };
+import axios from 'axios'
+import {useState, useEffect} from 'react'
 
-    const loading = () => {
-        return <h1>No Pokemon To Display</h1>
-    };
 
-    return pokemon ? loaded() : loading();
+
+export default function App() {
+    //Pokemon API
+    const apiURL = "https://pokeapi.co/api/v2/pokemon/charizard";
+
+    const [data, setData] = useState();
+    const [name, setName] = useState();
+
+    useEffect(() => {
+        axios.get(apiURL).then((response) => {
+         
+            setData(response.data);
+            setName(response.data.name)
+        }).catch((err) => {
+            windows.alert(err);
+        })
+    })
+
+     return(
+        <div>
+            <h2>{name}</h2>
+            <input type="text" placeholder='type here..'/>
+            <input type="submit" />
+            <img src={data.sprites.other.dream_world.front_default} alt='pokemon' />
+            
+        </div>
+     );
 }
 
 
