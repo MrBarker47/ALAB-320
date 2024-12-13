@@ -3,31 +3,31 @@ import {useState, useEffect} from 'react'
 
 
 export default function App() {
-    const apiURL = "`https://pokeapi.co/api/v2/pokemon"
+    //Pokemon API
+    const apiURL = "https://pokeapi.co/api/v2/pokemon";
 
+    //State to hold pokemon data
+    const [pokemon, setPokemon] = useState(null);
+    //Making a function to get the pokemon 
+    const getPokemon = async(searchTerm) => {
+    //Fetching the api request
+    const response = await fetch(apiURL);
+    // Parse JSON response into a Javascript Object
+    const data = await response.json() 
+      setPokemon(data);
+    };
 
+        
 
-      const [pokemon, setPokemon] = useState(null);
-
-      //Making a function to get the pokemon 
-      const getPokemon = async(searchTerm) => {
-        const response = await fetch(apiURL)
-        .then(response => console.log(response))
-        .catch(error => console.log(error))
-      };
 
       useEffect(() => {
         getPokemon("Pikachu")
       }, []);
-
-
-    return(
+        return(
         <div>
-        <h1 className='pokemon'>Pokedex</h1>
-        <input className='input' placeholder='type here...'></input>
+   
         </div>
-    )
-
+        );
 }
 
 
@@ -40,3 +40,11 @@ const getPokemon = async(searchTerm) => {
         console.error(e) 
     }
 }
+
+
+
+/*
+      .then(response => console.log(response))
+        .catch(error => console.log(error))
+
+*/
