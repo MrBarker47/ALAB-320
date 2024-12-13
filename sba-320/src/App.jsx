@@ -11,7 +11,10 @@ export default function App() {
     //Making a function to get the pokemon 
     const getPokemon = async(searchTerm) => {
     //Fetching the api request
-    const response = await fetch(apiURL);
+    const response = await fetch(apiURL); {
+        console.log("it connects with api");
+    }
+    
     // Parse JSON response into a Javascript Object
     const data = await response.json() 
       setPokemon(data);

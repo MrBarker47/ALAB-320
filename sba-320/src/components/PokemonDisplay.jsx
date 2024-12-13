@@ -4,6 +4,7 @@ export default function PokemonDisplay({ pokemon }) {
             <>
             <h1>{pokemon.name}</h1>
             <h2>{pokemon.url}</h2>
+            <img src={pokemon.img} alt={pokemon.Title} />
             </>
         );
     };
