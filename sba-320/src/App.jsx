@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 
-
+import PokemonDisplay from './components/PokemonDisplay';
+import Pokedex from './components/PokeDex';
 
 export default function App() {
     //Pokemon API
@@ -28,7 +29,8 @@ export default function App() {
       }, []);
         return(
         <div>
-   
+        <PokemonDisplay pokemonsearch={getPokemon} />
+        <Pokedex pokemon={pokemon} />
         </div>
         );
 }
